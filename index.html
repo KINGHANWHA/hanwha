@@ -14,7 +14,8 @@
 <style>
   :root{ --orange:#FF6600; --orange2:#ff8c3a; --navy:#1c2230; --dark:#231F20; --gray:#8a8f98; --line:#eceef1; --win:#1e9e5a; --loss:#e0413e; --draw:#9aa0a8; }
   *{ box-sizing:border-box; margin:0; padding:0; }
-  body{ font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif; background:#eef0f3; color:var(--dark); padding:22px 14px 60px; }
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  body{ font-family:'Malgun Gothic','Apple SD Gothic Neo','Segoe UI',sans-serif; background:#eef0f3; color:var(--dark); padding:22px 14px 60px; line-height:1.55; word-break:keep-all; overflow-wrap:break-word; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
   .wrap{ max-width:680px; margin:0 auto; }
   header{ background:linear-gradient(135deg,var(--orange),var(--orange2)); color:#fff; border-radius:20px; padding:18px 22px; box-shadow:0 8px 24px rgba(255,102,0,.28); }
   .head-main{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
@@ -29,7 +30,7 @@
   .hb-stat{ font-size:11.5px; opacity:.95; margin-top:1px; }
   .record{ display:flex; gap:8px; margin-top:16px; }
   .rec-box{ flex:1; background:rgba(255,255,255,.16); border-radius:12px; padding:9px 2px; text-align:center; }
-  .rec-box b{ font-size:21px; display:block; } .rec-box small{ font-size:11px; opacity:.92; }
+  .rec-box b{ font-size:21px; display:block; white-space:nowrap; letter-spacing:-1px; } .rec-box small{ font-size:11px; opacity:.92; }
   /* 새로고침 바 */
   .refbar{ display:flex; align-items:center; gap:10px; margin-top:12px; flex-wrap:wrap; }
   .refbar button{ border:none; background:var(--dark); color:#fff; font-weight:800; font-size:13px; padding:9px 15px; border-radius:11px; cursor:pointer; font-family:inherit; }
@@ -38,7 +39,7 @@
   .ref-stat.loading{ color:var(--orange); } .ref-stat.ok{ color:var(--win); } .ref-stat.err{ color:var(--loss); }
   /* 탭 */
   .tabs{ display:flex; gap:8px; margin-top:16px; }
-  .tab{ flex:1; border:none; background:#fff; color:var(--gray); font-size:15px; font-weight:800; padding:13px; border-radius:14px 14px 0 0; cursor:pointer; font-family:inherit; box-shadow:0 -2px 0 transparent inset; transition:.15s; }
+  .tab{ flex:1; min-width:0; border:none; background:#fff; color:var(--gray); font-size:14px; font-weight:800; line-height:1.25; letter-spacing:-.4px; padding:12px 4px; border-radius:14px 14px 0 0; cursor:pointer; font-family:inherit; box-shadow:0 -2px 0 transparent inset; transition:.15s; }
   .tab.active{ color:var(--orange); box-shadow:0 -3px 0 var(--orange) inset; }
   .pane{ display:none; } .pane.active{ display:block; }
   /* 다음 경기 히어로 */
@@ -142,7 +143,7 @@
   .cb-row.up b{ color:var(--win); } .cb-row.down b{ color:var(--loss); }
   /* 선수 분석 */
   .ana-search{ display:flex; gap:8px; margin:10px 0 6px; }
-  .ana-search input{ flex:1; border:1.5px solid var(--line); border-radius:11px; padding:12px 14px; font-size:15px; font-family:inherit; outline:none; }
+  .ana-search input{ flex:1; min-width:0; border:1.5px solid var(--line); border-radius:11px; padding:12px 14px; font-size:16px; font-family:inherit; outline:none; }
   .ana-search input:focus{ border-color:var(--orange); }
   .ana-search button{ border:none; background:var(--orange); color:#fff; font-weight:800; font-size:15px; padding:0 20px; border-radius:11px; cursor:pointer; font-family:inherit; }
   .ana-quick{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
@@ -233,6 +234,39 @@
   .rp-note{ font-size:11px; color:var(--gray); line-height:1.6; margin-top:10px; padding:10px 12px; background:#f6f7f9; border-radius:10px; }
   footer{ text-align:center; font-size:11px; color:var(--gray); margin-top:22px; line-height:1.7; }
   .empty{ padding:18px 4px; color:var(--gray); font-size:13px; }
+  /* 모바일 최적화 (좁은 화면 글자/간격 보정) */
+  @media(max-width:480px){
+    body{ padding:16px 11px 50px; }
+    header{ padding:16px 15px; border-radius:18px; }
+    .head-main{ gap:10px; }
+    .head-id{ gap:10px; }
+    .head-id img{ width:42px; height:42px; }
+    header h1{ font-size:20px; letter-spacing:-1.2px; }
+    header h1 small{ font-size:11.5px; }
+    .hero-batter{ gap:9px; padding:7px 12px 7px 7px; }
+    .hb-photo{ width:46px; height:46px; }
+    .hb-name{ font-size:15px; } .hb-stat{ font-size:11px; }
+    .record{ gap:5px; margin-top:13px; }
+    .rec-box{ padding:9px 1px; }
+    .rec-box b{ font-size:18px; } .rec-box small{ font-size:10px; }
+    .refbar{ gap:8px; margin-top:11px; }
+    .refbar button{ font-size:12.5px; padding:8px 13px; }
+    .ref-stat{ font-size:11px; line-height:1.5; }
+    .tabs{ gap:5px; margin-top:14px; }
+    .tab{ font-size:11.5px; padding:10px 2px; letter-spacing:-.5px; }
+    .next-card{ padding:18px 15px; }
+    .hero-arrow{ width:30px; height:30px; font-size:18px; }
+    .next-main{ gap:14px; }
+    .next-team{ font-size:18px; } .next-team img{ width:42px; height:42px; }
+    .next-score{ font-size:26px; }
+    .matchup{ gap:4px; }
+    .pit-photo{ width:66px; height:66px; }
+    .pit-name{ font-size:14px; } .pit-stat{ font-size:11px; }
+    section{ padding:6px 14px 13px; }
+    .game-row{ grid-template-columns:50px 1fr 54px 42px; gap:6px; padding:11px 2px; }
+    .g-date{ font-size:14px; } .g-opp{ font-size:14px; } .g-score{ font-size:15px; }
+    .g-pit{ font-size:11px; }
+  }
   /* 데스크탑: 캘린더 표시, 모바일 리스트 숨김 */
   @media(min-width:900px){
     .wrap{ max-width:1000px; }
@@ -269,15 +303,15 @@
 
   <div class="refbar">
     <button id="refBtn" onclick="location.reload(true)">🔄 새로고침</button>
-    <span class="ref-stat" id="refStat">최종 업데이트 2026-06-26 00:49 · 자동 갱신 매일 11시·18시·23시 · 버튼을 누르면 최신본을 다시 불러옵니다</span>
+    <span class="ref-stat" id="refStat">최종 업데이트 2026-06-26 01:19 · 자동 갱신 매일 11시·18시·23시 · 버튼을 누르면 최신본을 다시 불러옵니다</span>
   </div>
 
   <div class="tabs">
-    <button class="tab active" id="tab-sched" onclick="showTab('sched')">📅 일정 · 결과</button>
+    <button class="tab active" id="tab-sched" onclick="showTab('sched')">📅 일정·결과</button>
     <button class="tab" id="tab-rank" onclick="showTab('rank')">📊 순위표</button>
     <button class="tab" id="tab-squad" onclick="showTab('squad')">👥 선수단</button>
-    <button class="tab" id="tab-ana" onclick="showTab('ana')">🔬 선수 분석</button>
-    <button class="tab" id="tab-report" onclick="showTab('report')">📈 경기 분석</button>
+    <button class="tab" id="tab-ana" onclick="showTab('ana')">🔬 선수분석</button>
+    <button class="tab" id="tab-report" onclick="showTab('report')">📈 경기분석</button>
   </div>
 
   <div class="pane active" id="pane-sched">
@@ -801,7 +835,7 @@
 
   <footer>
     데이터 출처: 네이버 스포츠 · 선수 사진/CI © 각 구단 · 매일 자동 업데이트<br>
-    최종 업데이트 2026-06-26 00:49 · 30분마다 자동 새로고침 · 총 147경기 / 85경기 종료
+    최종 업데이트 2026-06-26 01:19 · 30분마다 자동 새로고침 · 총 147경기 / 85경기 종료
   </footer>
 </div>
 
