@@ -308,7 +308,7 @@
 
   <div class="refbar">
     <span class="visitor" id="visitorBox" style="display:none"></span>
-    <span class="ref-stat" id="refStat">최종 업데이트 2026-06-27 00:26 · 자동 갱신 매일 11시·18시·23시</span>
+    <span class="ref-stat" id="refStat">최종 업데이트 2026-06-27 00:32 · 자동 갱신 매일 11시·18시·23시</span>
   </div>
 
   <div class="tabs">
@@ -838,7 +838,7 @@
 
   <footer>
     데이터 출처: 네이버 스포츠 · 선수 사진/CI © 각 구단 · 매일 자동 업데이트<br>
-    최종 업데이트 2026-06-27 00:26 · 30분마다 자동 새로고침 · 총 147경기 / 86경기 종료
+    최종 업데이트 2026-06-27 00:32 · 30분마다 자동 새로고침 · 총 147경기 / 86경기 종료
   </footer>
 </div>
 
@@ -1022,24 +1022,16 @@ function calRender(){
   calRender();
 })();
 
-// ===== 금일/누적 방문자 수 (Abacus 무료 카운터 · 백엔드 불필요 · 실패 시 조용히 숨김) =====
+// ===== 누적 방문자 수 (Abacus 무료 카운터 · 백엔드 불필요 · 요청 1건 · 실패 시 조용히 숨김) =====
 (function(){
   var box=document.getElementById('visitorBox'); if(!box) return;
-  var NS='hanwha-eagles-kbo', BASE='https://abacus.jasoncameron.dev';
-  var t=RTODAY.replace(/-/g,''), dayKey='day-'+t, totKey='total';
-  var once='hw-visit-'+t, first=false;
+  var NS='hanwha-eagles-kbo', BASE='https://abacus.jasoncameron.dev', totKey='total';
+  var once='hw-visit-'+RTODAY, first=false;
   try{ first=!localStorage.getItem(once); if(first) localStorage.setItem(once,'1'); }catch(e){ first=true; }
-  var verb=first?'hit':'get';   // 같은 기기·같은 날 첫 방문만 +1 (30분 자동 새로고침 중복 집계 방지)
-  function jget(u){ return fetch(u,{cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
-  Promise.all([
-    jget(BASE+'/'+verb+'/'+NS+'/'+dayKey).catch(function(){return null;}),
-    jget(BASE+'/'+verb+'/'+NS+'/'+totKey).catch(function(){return null;})
-  ]).then(function(r){
-    var d=(r[0]&&typeof r[0].value!=='undefined')?r[0].value:null;
-    var tot=(r[1]&&typeof r[1].value!=='undefined')?r[1].value:null;
-    if(d==null&&tot==null){ return; }
-    var parts=[]; if(d!=null) parts.push('오늘 <b>'+d+'</b>명'); if(tot!=null) parts.push('누적 <b>'+tot+'</b>명');
-    box.innerHTML='👥 방문자 · '+parts.join(' · ');
+  var verb=first?'hit':'get';   // 같은 기기·같은 날 첫 방문만 +1 (자동 새로고침 중복 집계 방지)
+  fetch(BASE+'/'+verb+'/'+NS+'/'+totKey,{cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(j){
+    if(!j||typeof j.value==='undefined') return;
+    box.innerHTML='👥 누적 방문자 <b>'+j.value+'</b>명';
     box.style.display='';
   }).catch(function(){});
 })();
