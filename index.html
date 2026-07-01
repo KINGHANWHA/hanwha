@@ -46,7 +46,7 @@
   .next-card{ position:relative; background:linear-gradient(160deg,#262d3d,var(--navy)); color:#fff; border-radius:0 0 20px 20px; padding:20px 22px; box-shadow:0 8px 24px rgba(28,34,48,.25); }
   .hero-arrow{ position:absolute; top:30px; width:34px; height:34px; border:none; border-radius:50%; background:rgba(255,255,255,.13); color:#fff; font-size:20px; line-height:1; cursor:pointer; z-index:3; transition:.15s; }
   .hero-arrow:hover{ background:var(--orange); } .hero-arrow.left{ left:14px; } .hero-arrow.right{ right:14px; }
-  .hero-slide{ display:none; } .hero-slide:first-child{ display:block; }
+  .hero-slide{ display:none; } .hero-slide.hero-init{ display:block; }
   .next-score{ font-size:30px; font-weight:800; color:#fff; letter-spacing:1px; }
   .hero-result{ text-align:center; font-size:13px; color:#cfd2d6; margin:2px 0 2px; } .hero-result b{ color:var(--orange2); }
   .next-label{ font-size:13px; color:#ffb37a; font-weight:800; } .dday{ background:var(--orange); padding:2px 10px; border-radius:20px; margin-left:6px; font-size:12px; }
@@ -289,11 +289,11 @@
         <h1>한화 이글스<small>⚾ 2026 KBO 일정 · 결과 · 순위</small></h1>
       </div>
             <div class="hero-batter">
-        <div class="hb-photo"><img src="https://sports-phinf.pstatic.net/player/kbo/default/50707.png" alt="" onerror="this.parentNode.classList.add('noimg')"/></div>
+        <div class="hb-photo"><img src="https://sports-phinf.pstatic.net/player/kbo/default/69737.png" alt="" onerror="this.parentNode.classList.add('noimg')"/></div>
         <div class="hb-info">
           <span class="hb-tag">🔥 상승세 타자</span>
-          <div class="hb-name">최인호 <small>No.41</small></div>
-          <div class="hb-stat">최근 2경기 타율 0.556 · 1홈런 · 3타점</div>
+          <div class="hb-name">노시환 <small>No.8</small></div>
+          <div class="hb-stat">최근 5경기 타율 0.350 · 4홈런 · 6타점</div>
         </div>
       </div>
     </div>
@@ -308,7 +308,7 @@
 
   <div class="refbar">
     <span class="visitor" id="visitorBox" style="display:none"></span>
-    <span class="ref-stat" id="refStat">최종 업데이트 2026-07-01 12:02 · 자동 갱신 매일 11시·18시·23시</span>
+    <span class="ref-stat" id="refStat">최종 업데이트 2026-07-01 12:10 · 자동 갱신 매일 11시·18시·23시</span>
   </div>
 
   <div class="tabs">
@@ -325,6 +325,50 @@
       <button class="hero-arrow right" id="heroNext" onclick="heroNav(1)" aria-label="다음 경기">›</button>
       <div class="hero-slides" id="heroSlides">
       <div class="hero-slide">
+        <div class="next-label">경기 결과 <span class="dday">종료</span></div>
+        <div class="next-main">
+          <div class="next-team home"><img src="https://sports-phinf.pstatic.net/team/kbo/default/HH.png" alt=""/><span>한화</span></div>
+          <div class='next-score'>8 : 1</div>
+          <div class="next-team away"><img src="https://sports-phinf.pstatic.net/team/kbo/default/SK.png" alt="" onerror="this.style.display='none'"/><span>SSG</span></div>
+        </div>
+        <div class="next-meta">06.27(토) 17:00 · 문학 · 원정경기</div>
+        <div class='hero-result'>승 <b>화이트</b> · 패 타케다</div>
+              <div class="matchup">
+                <div class="pit ours">
+          <div class="pit-photo" style="--ph:url('https://sports-phinf.pstatic.net/team/kbo/default/HH.png')"><img src="https://sports-phinf.pstatic.net/player/kbo/default/56724.png" alt="" onerror="this.parentNode.classList.add('noimg')"/></div>
+          <div class="pit-name">화이트 <span class="pit-back">No.24</span></div>
+          <div class="pit-stat"><b>3.65</b> ERA · 3승 4패 · 28K</div>
+        </div>
+        <div class="mu-vs">선발<br>맞대결</div>
+                <div class="pit opp">
+          <div class="pit-photo" style="--ph:url('https://sports-phinf.pstatic.net/team/kbo/default/SK.png')"><img src="https://sports-phinf.pstatic.net/player/kbo/default/56823.png" alt="" onerror="this.parentNode.classList.add('noimg')"/></div>
+          <div class="pit-name">타케다 <span class="pit-back">No.23</span></div>
+          <div class="pit-stat"><b>7.06</b> ERA · 1승 6패 · 49K</div>
+        </div>
+      </div>
+      </div>      <div class="hero-slide">
+        <div class="next-label">경기 결과 <span class="dday">종료</span></div>
+        <div class="next-main">
+          <div class="next-team home"><img src="https://sports-phinf.pstatic.net/team/kbo/default/HH.png" alt=""/><span>한화</span></div>
+          <div class='next-score'>6 : 3</div>
+          <div class="next-team away"><img src="https://sports-phinf.pstatic.net/team/kbo/default/SK.png" alt="" onerror="this.style.display='none'"/><span>SSG</span></div>
+        </div>
+        <div class="next-meta">06.28(일) 17:00 · 문학 · 원정경기</div>
+        <div class='hero-result'>승 <b>이상규</b> · 패 조병현</div>
+              <div class="matchup">
+                <div class="pit ours">
+          <div class="pit-photo" style="--ph:url('https://sports-phinf.pstatic.net/team/kbo/default/HH.png')"><img src="https://sports-phinf.pstatic.net/player/kbo/default/76715.png" alt="" onerror="this.parentNode.classList.add('noimg')"/></div>
+          <div class="pit-name">류현진 <span class="pit-back">No.99</span></div>
+          <div class="pit-stat"><b>2.76</b> ERA · 8승 2패 · 63K</div>
+        </div>
+        <div class="mu-vs">선발<br>맞대결</div>
+                <div class="pit opp">
+          <div class="pit-photo" style="--ph:url('https://sports-phinf.pstatic.net/team/kbo/default/SK.png')"><img src="https://sports-phinf.pstatic.net/player/kbo/default/68856.png" alt="" onerror="this.parentNode.classList.add('noimg')"/></div>
+          <div class="pit-name">최민준 <span class="pit-back">No.30</span></div>
+          <div class="pit-stat"><b>4.84</b> ERA · 1승 4패 · 47K</div>
+        </div>
+      </div>
+      </div>      <div class="hero-slide hero-init">
         <div class="next-label">오늘 경기 <span class="dday">오늘</span></div>
         <div class="next-main">
           <div class="next-team home"><img src="https://sports-phinf.pstatic.net/team/kbo/default/HH.png" alt=""/><span>한화</span></div>
@@ -838,7 +882,7 @@
 
   <footer>
     데이터 출처: 네이버 스포츠 · 선수 사진/CI © 각 구단 · 매일 자동 업데이트<br>
-    최종 업데이트 2026-07-01 12:02 · 30분마다 자동 새로고침 · 총 147경기 / 88경기 종료
+    최종 업데이트 2026-07-01 12:10 · 30분마다 자동 새로고침 · 총 147경기 / 88경기 종료
   </footer>
 </div>
 
@@ -859,7 +903,7 @@ function showTab(t){
   document.getElementById('tab-'+t).classList.add('active');
   document.getElementById('pane-'+t).classList.add('active');
 }
-var heroIdx=0;
+var heroIdx=2;
 function heroShow(i){
   var s=document.querySelectorAll('#heroSlides .hero-slide'); if(!s.length) return;
   if(i<0){i=0;} if(i>s.length-1){i=s.length-1;} heroIdx=i;
@@ -869,7 +913,7 @@ function heroShow(i){
   if(nx){ nx.style.visibility=(i>=s.length-1)?'hidden':'visible'; }
 }
 function heroNav(d){ heroShow(heroIdx+d); }
-heroShow(0);
+heroShow(2);
 function showSquad(s){
   var bs=document.querySelectorAll('.sbtn'); for(var i=0;i<bs.length;i++){ bs[i].classList.remove('active'); }
   var vs=document.querySelectorAll('.squad-view'); for(var j=0;j<vs.length;j++){ vs[j].classList.remove('active'); }
